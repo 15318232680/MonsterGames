@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monster Survivors - Thrilling Online Survival Game</title>
+    <meta name="description" content="Play Monster Survivors online - an exciting survival game where you battle hordes of monsters in a thrilling adventure. Play for free now!">
+    <link rel="canonical" href="https://monster-games.online">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'game-blue': '#0078FF',
+                        'game-dark': '#333333',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwind">
+        @layer base {
+            body {
+                @apply bg-gray-100 text-game-dark font-sans;
+            }
+            h1 {
+                @apply text-4xl md:text-5xl font-bold text-white mb-2;
+            }
+            h2 {
+                @apply text-2xl md:text-3xl font-semibold text-game-blue mt-8 mb-4;
+            }
+            p {
+                @apply mb-4;
+            }
+            .nav-link {
+                @apply text-white hover:text-gray-200 px-4 py-2 text-lg;
+            }
+            .game-container {
+                @apply w-full bg-white rounded-xl shadow-lg overflow-hidden my-6;
+            }
+            .game-frame {
+                @apply w-full aspect-[16/9] border-0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="bg-game-blue shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <div>
+                    <h1 class="text-3xl md:text-4xl mb-0">Monster Survivors</h1>
+                    <p class="text-sm md:text-base text-white/90 mt-0">Survive and fight against endless waves of monsters!</p>
+                </div>
+                <div class="hidden md:flex space-x-2">
+                    <a href="#play" class="nav-link">Play Now</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#controls" class="nav-link">Controls</a>
+                </div>
+                <!-- 移动端菜单按钮 -->
+                <button class="md:hidden text-white" id="menu-button">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 游戏区域 - 使用更大的容器 -->
+    <div class="w-full max-w-[1400px] mx-auto px-4 py-6">
+        <h2 class="text-3xl font-bold text-game-blue mb-4" id="play">Play Monster Survivors</h2>
+        
+        <div class="game-container">
+            <iframe 
+                src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" 
+                class="game-frame"
+                allow="fullscreen"
+                title="Play Monster Survivors Online"
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- 简化的游戏信息 -->
+    <div class="w-full max-w-[1400px] mx-auto px-4 pb-8">
+        <section id="about" class="bg-white rounded-xl shadow-lg p-6 my-6">
+            <h2>About Monster Survivors</h2>
+            <p>Monster Survivors is an action-packed survival game where you fight against endless waves of monsters. Upgrade your character and unlock new abilities to survive as long as possible.</p>
+            
+            <h2 id="controls">Controls</h2>
+            <p>Use WASD or arrow keys to move. Attacks are automatic. Collect experience orbs to level up and choose new abilities.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                <div>
+                    <h3 class="text-xl font-semibold text-game-blue">Features</h3>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Endless waves of unique monsters</li>
+                        <li>Multiple character classes</li>
+                        <li>RPG-style progression system</li>
+                        <li>Beautiful pixel art graphics</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-game-blue">Tips</h3>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Keep moving to avoid being surrounded</li>
+                        <li>Prioritize area damage abilities</li>
+                        <li>Collect health pickups when available</li>
+                        <li>Upgrade your favorite abilities first</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-game-dark text-white py-4">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm">&copy; 2024 Monster Games. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- 移动端导航菜单 -->
+    <div class="hidden fixed inset-0 bg-black bg-opacity-50 z-40" id="mobile-menu">
+        <div class="bg-game-blue h-full w-64 p-4">
+            <div class="flex justify-end">
+                <button class="text-white" id="close-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-4 mt-4">
+                <a href="#play" class="nav-link">Play Now</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#controls" class="nav-link">Controls</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript用于移动端菜单 -->
+    <script>
+        document.getElementById('menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('hidden');
+        });
+        
+        document.getElementById('close-menu').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        });
+        
+        // 点击菜单项后关闭菜单
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
